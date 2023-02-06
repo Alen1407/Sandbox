@@ -7,7 +7,7 @@ class BitVector:
     def set(self, index:int):
             byte_index = index // 64
             bit_index = index % 64
-            self.__data[byte_index] = self.__data[byte_index] | np.uint(1 << bit_index)
+            self.__data[byte_index] |= np.uint(1 << bit_index)
 
     def reset(self, index:int):
         byte_index = index // 64
