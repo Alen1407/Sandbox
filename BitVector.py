@@ -7,12 +7,12 @@ class BitVector:
     def set(self, index:int):
             byte_index = index // 64
             bit_index = index % 64
-            self.__data[byte_index] |= np.uint(1 << bit_index)
+            self.__data[self.__data.shape[0] - byte_index - 1] |= np.uint(1 << bit_index)
 
     def reset(self, index:int):
         byte_index = index // 64
         bit_index = index % 64
-        self.__data[byte_index] &= np.uint(~(1 << bit_index))
+        self.__data[self.__data.shape[0] - byte_index - 1] &= np.uint(~(1 << bit_index))
 
 
     def print(self):
@@ -24,4 +24,6 @@ bv.set(2)
 bv.set(3)
 bv.set(4)
 bv.set(4)
+bv.set(100)
+bv.set(200)
 bv.print()
